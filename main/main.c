@@ -24,14 +24,25 @@ static esp_err_t temperature_get_handler(httpd_req_t *req)
     int ret = readDHT();
 	errorHandler(ret);
 
-    char resp_str[100];
-    int n = sprintf (resp_str, "Humidity: %.1f %% Temperature: %.1f", getHumidity(), getTemperature());
-    httpd_resp_send(req, resp_str, HTTPD_RESP_USE_STRLEN);
+char template_html[512];
+
+sprintf (template_html, "<!DOCTYPE html>\
+<html lang=\"ru\">\
+<head>\
+  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\
+  <title>MeteoInfo</title>\
+</head>\
+<body>\
+  <h1 style=\"text-align: center;\">Humidity: %.1f %% <br>Temperature: %.1f </h1>\
+</body>\
+</html>", getHumidity(), getTemperature());
+
+    httpd_resp_send(req, template_html, HTTPD_RESP_USE_STRLEN);
     return ESP_OK;
 }
 
 static const httpd_uri_t temperature = {
-    .uri       = "/temperature",
+    .uri       = "/",
     .method    = HTTP_GET,
     .handler   = temperature_get_handler,
 
@@ -39,7 +50,7 @@ static const httpd_uri_t temperature = {
 
 esp_err_t http_404_error_handler(httpd_req_t *req, httpd_err_code_t err)
 {
-    if (strcmp("/temperature", req->uri) == 0) {
+    if (strcmp("/", req->uri) == 0) {
         httpd_resp_send_err(req, HTTPD_404_NOT_FOUND, "/temperature URI is not available");
         return ESP_OK;
     }

@@ -1,7 +1,14 @@
 # ESP32_DHT22_Server
 
-## TO-DO
+## How to
 
-* Rewrite base code
-* Create friendly html page
-* Repo look and feel
+* Install VS Code
+* Install and configure Espressif extension
+* In menuconfig enter wifi network name and password
+* build, flash and monitor
+* Monitor will show ip and port
+
+## Troubleshooting
+
+* If monitor starts printing symbols, try change faud rate by command or config files
+
