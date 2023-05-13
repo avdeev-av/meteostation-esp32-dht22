@@ -1,6 +1,6 @@
 # ESP32_DHT22_Server
 
-## How to
+## How to use
 * Install VS Code
 * Install and configure Espressif extension
 * In menuconfig enter wifi network name and password
