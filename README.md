@@ -1,7 +1,6 @@
 # ESP32_DHT22_Server
 
 ## How to
-n my case 115200 works well
 * Install VS Code
 * Install and configure Espressif extension
 * In menuconfig enter wifi network name and password
