@@ -10,7 +10,3 @@
 ## Troubleshooting
 
 * If monitor starts printing symbols, try change faud rate by command or config files (in my case 115200 works fine)
-
-
-## To-Do
-* Code style, favicon, typo and functions fixes
