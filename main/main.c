@@ -27,7 +27,7 @@ static esp_err_t temperature_get_handler(httpd_req_t *req)
 char template_html[512];
 
 sprintf (template_html, "<!DOCTYPE html>\
-<html lang=\"ru\">\
+<html lang=\"en\">\
 <head>\
   <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\
   <title>MeteoInfo</title>\
